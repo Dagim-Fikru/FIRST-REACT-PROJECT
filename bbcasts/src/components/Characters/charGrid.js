@@ -1,13 +1,15 @@
 import React from 'react'
+import CharItem from './CharItem'
+import Spinner from '../ui/Spinner'
 
-const charGrid = ({ items, isLoading}) => {
-  return isLoading ? (<h1>Loading...</h1>) : (<section className='cards'>
+const CharGrid = ({ charcs, isLoading}) => {
+  return isLoading ? (<Spinner />) : (<section className='cards'>
 
-      {items.map(item => (
-          <h1>{item.name}</h1>
+      {charcs.map(charc => (
+          <CharItem key={charc.char_id} charc={charc}></CharItem>
       ))}
 
   </section>)
 }
 
-export default charGrid
+export default CharGrid
